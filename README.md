@@ -7,7 +7,10 @@
 
 ## 🚀 Démarrage Rapide
 
-Injectez des compétences hautement spécialisées directement dans votre environnement **Cursor** ou **Windsurf** via `bunx` ou `pnpx`.
+Injectez des compétences hautement spécialisées directement dans votre environnement IA préféré via `bunx` ou `pnpx`.
+
+**Compatible avec :**
+`Claude Code` • `Cursor` • `Windsurf` • `Warp` • `VS Code` • `Antigravity`
 
 > [!TIP]
 > Pas besoin de cloner le repo. Lancez simplement la commande à la racine de votre projet.
