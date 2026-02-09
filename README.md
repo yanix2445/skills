@@ -35,7 +35,7 @@ bunx skills add yanix2445/skills --list
 | Nom du Skill | Type | Impact | Description |
 | :--- | :---: | :---: | :--- |
 | **[`url-orchestrator`](url-orchestrator/SKILL.md)** | 🌐 | `HIGH` | Maîtrisez votre routing. Aligné **Next.js 16** (Proxy, Parallel Routes), strictement typé (`Route`), et SEO-ready. |
-| **[`git-governance`](git-governance/SKILL.md)** | 🛡️ | `CRIT` | La ceinture de sécurité de votre repo. Protection contre les force-push, commits atomiques et conventions strictes. |
+| **[`git-convention`](git-convention/SKILL.md)** | 🛡️ | `CRIT` | La ceinture de sécurité de votre repo. Protection contre les force-push, commits atomiques et conventions strictes. |
 | *Bientôt disponible* | 🔜 | - | *Restez à l'affût pour les skills Auth, Paiement et UI.* |
 
 ---
@@ -64,7 +64,7 @@ graph TD
 ```
 </details>
 
-### 🛡️ Git Governance
+### 🛡️ Git Convention
 > *Plus qu'un linter, un gardien pour votre historique Git.*
 
 - [x] **Sécurité Critique**: Bloque les force-push sur `main` et impose la vérification avant `add`.
