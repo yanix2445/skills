@@ -2,29 +2,30 @@
 > *Orchestrez vos workflows IA avec précision, élégance et typage strict.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
 
 ---
 
 ## 🚀 Démarrage Rapide
 
-Injectez des compétences hautement spécialisées directement dans votre environnement **Cursor** ou **Windsurf** grâce à la puissance de `npx`.
+Injectez des compétences hautement spécialisées directement dans votre environnement **Cursor** ou **Windsurf** via `bunx` ou `pnpx`.
 
 > [!TIP]
 > Pas besoin de cloner le repo. Lancez simplement la commande à la racine de votre projet.
 
 ```bash
-# Installer un skill spécifique (ex: url-orchestrator)
-npx skills add https://github.com/yanix2445/skills --skill url-orchestrator
+# Avec Bun (Recommandé)
+bunx skills add https://github.com/yanix2445/skills --skill url-orchestrator
+
+# Avec pnpm
+pnpx skills add https://github.com/yanix2445/skills --skill url-orchestrator
 ```
 
 ### 📋 Lister les skills disponibles
 
-Curieux de voir ce qui est disponible ?ffichez le contenu du registre instantanément :
+Curieux de voir ce qui est disponible ? Affichez le contenu du registre instantanément :
 
 ```bash
-npx skills add yanix2445/skills --list
+bunx skills add yanix2445/skills --list
 ```
 
 ---
