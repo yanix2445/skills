@@ -54,12 +54,12 @@ bunx skills add yanix2445/skills --list
 
 ```mermaid
 graph TD
-    A[Requête Utilisateur] -->|Proxy.ts| B(Couche Routing)
-    B --> C{Type Route}
-    C -->|Statique| D[Page]
-    C -->|Dynamique| E[Layout]
-    E --> F[Parallèle @slot]
-    E --> G[Interception (.)modal]
+    A["Requête Utilisateur"] -->|Proxy.ts| B("Couche Routing")
+    B --> C{"Type Route"}
+    C -->|Statique| D["Page"]
+    C -->|Dynamique| E["Layout"]
+    E --> F["Parallèle @slot"]
+    E --> G["Interception (.)modal"]
 ```
 </details>
 
