@@ -1,0 +1,5 @@
+# Ignore everything except url-orchestrator
+*
+!url-orchestrator/
+!url-orchestrator/**
+!.gitignore
