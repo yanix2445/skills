@@ -1,5 +1,5 @@
-# ⚡️ Yanix Skills Registry
-> *Orchestrate your AI workflow with precision, elegance, and strictly typed patterns.*
+# ⚡️ Registre de Skills Yanix
+> *Orchestrez vos workflows IA avec précision, élégance et typage strict.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org)
@@ -7,21 +7,21 @@
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Démarrage Rapide
 
-Inject highly-specialized skills directly into your **Cursor** or **Windsurf** environment using the power of `npx`.
+Injectez des compétences hautement spécialisées directement dans votre environnement **Cursor** ou **Windsurf** grâce à la puissance de `npx`.
 
 > [!TIP]
-> No cloning required. Just run the command in your project root.
+> Pas besoin de cloner le repo. Lancez simplement la commande à la racine de votre projet.
 
 ```bash
-# Install a specific skill (e.g., url-orchestrator)
+# Installer un skill spécifique (ex: url-orchestrator)
 npx skills add https://github.com/yanix2445/skills --skill url-orchestrator
 ```
 
-### 📋 List Available Skills
+### 📋 Lister les skills disponibles
 
-Curious about what's available? List the registry content instantly:
+Curieux de voir ce qui est disponible ?ffichez le contenu du registre instantanément :
 
 ```bash
 npx skills add yanix2445/skills --list
@@ -29,52 +29,52 @@ npx skills add yanix2445/skills --list
 
 ---
 
-## 📦 Skill Catalog
+## 📦 Catalogue de Skills
 
-| Skill Name | Type | Impact | Description |
+| Nom du Skill | Type | Impact | Description |
 | :--- | :---: | :---: | :--- |
-| **[`url-orchestrator`](url-orchestrator/SKILL.md)** | 🌐 | `HIGH` | Master your routing universe. **Next.js 16** aligned (Proxy, Parallel Routes), strictly typed (`Route`), and SEO-ready. |
-| *More coming soon* | 🔜 | - | *Stay tuned for Auth, Payment, and UI skills.* |
+| **[`url-orchestrator`](url-orchestrator/SKILL.md)** | 🌐 | `HIGH` | Maîtrisez votre routing. Aligné **Next.js 16** (Proxy, Parallel Routes), strictement typé (`Route`), et SEO-ready. |
+| *Bientôt disponible* | 🔜 | - | *Restez à l'affût pour les skills Auth, Paiement et UI.* |
 
 ---
 
-## ✨ Features Breakdown
+## ✨ Détails des Fonctionnalités
 
 ### 🌐 URL Orchestrator
-> *The definitive guide to Next.js App Router governance.*
+> *Le guide définitif pour la gouvernance Next.js App Router.*
 
-- [x] **Next.js 16 Compliant**: Native `proxy.ts`, `searchParams` (Async), and Typed Routes.
-- [x] **Patterns Library**: Copy-paste ready examples for Intercepting Routes (`(.)folder`), Parallel Routes (`@folder`), and more.
-- [x] **Strict Governance**: Rules for standardizing slugs, canonicals, and file structure.
-- [ ] ~~Legacy Middleware support~~ (Deprecated)
+- [x] **Conforme Next.js 16**: `proxy.ts` natif, `searchParams` (Async), et Typed Routes.
+- [x] **Bibliothèque de Patterns**: Exemples prêts à l'emploi pour Intercepting Routes (`(.)folder`), Parallel Routes (`@folder`), et plus.
+- [x] **Gouvernance Stricte**: Règles pour standardiser les slugs, les canonicals et la structure des fichiers.
+- [ ] ~~Support Middleware Legacy~~ (Déprécié)
 
 <details>
-<summary><strong>🔍 Peek into the architecture</strong></summary>
+<summary><strong>🔍 Jeter un œil à l'architecture</strong></summary>
 
 ```mermaid
 graph TD
-    A[User Request] -->|Proxy.ts| B(Routing Layer)
-    B --> C{Route Type}
-    C -->|Static| D[Page]
-    C -->|Dynamic| E[Layout]
-    E --> F[Parallel @slot]
-    E --> G[Intercepting (.)modal]
+    A[Requête Utilisateur] -->|Proxy.ts| B(Couche Routing)
+    B --> C{Type Route}
+    C -->|Statique| D[Page]
+    C -->|Dynamique| E[Layout]
+    E --> F[Parallèle @slot]
+    E --> G[Interception (.)modal]
 ```
 </details>
 
 ---
 
-## 🛠 Usage & Workflow
+## 🛠 Utilisation & Workflow
 
-1. **Install** the skill.
-2. **Read** the `SKILL.md` to understand the governance.
-3. **Apply** the patterns from `references/`.
+1. **Installez** le skill.
+2. **Lisez** le `SKILL.md` pour comprendre la gouvernance.
+3. **Appliquez** les patterns depuis le dossier `references/`.
 
 > [!IMPORTANT]
-> Always check for updates. The web evolves fast, and so do these skills.
+> Vérifiez toujours les mises à jour. Le web évolue vite, et ces skills aussi.
 
 ---
 
 <p align="center">
-  <sub>Built with ❤️ by Yanis • Powered by <a href="https://github.github.com/gfm/">GFM</a></sub>
+  <sub>Réalisé avec ❤️ par Yanis • Propulsé par <a href="https://github.github.com/gfm/">GFM</a></sub>
 </p>
