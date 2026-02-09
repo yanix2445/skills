@@ -35,6 +35,7 @@ bunx skills add yanix2445/skills --list
 | Nom du Skill | Type | Impact | Description |
 | :--- | :---: | :---: | :--- |
 | **[`url-orchestrator`](url-orchestrator/SKILL.md)** | 🌐 | `HIGH` | Maîtrisez votre routing. Aligné **Next.js 16** (Proxy, Parallel Routes), strictement typé (`Route`), et SEO-ready. |
+| **[`git-expert-guidelines`](git-expert-guidelines/SKILL.md)** | 🛡️ | `CRIT` | La ceinture de sécurité de votre repo. Protection contre les force-push, commits atomiques et conventions strictes. |
 | *Bientôt disponible* | 🔜 | - | *Restez à l'affût pour les skills Auth, Paiement et UI.* |
 
 ---
@@ -60,6 +61,29 @@ graph TD
     C -->|Dynamique| E["Layout"]
     E --> F["Parallèle @slot"]
     E --> G["Interception (.)modal"]
+```
+</details>
+
+### 🛡️ Git Expert Guidelines
+> *Plus qu'un linter, un gardien pour votre historique Git.*
+
+- [x] **Sécurité Critique**: Bloque les force-push sur `main` et impose la vérification avant `add`.
+- [x] **Workflow Atomique**: Une feature = une branche. Un changement = un commit.
+- [x] **Recovery Tactics**: Apprenez à réparer (`--amend`, `restore`) sans détruire.
+- [x] **Standards**: Conventional Commits en Français obligatoires.
+
+<details>
+<summary><strong>🔍 Jeter un œil à l'architecture</strong></summary>
+
+```mermaid
+graph LR
+    A[Code] -->|Status Check| B(Staging)
+    B -->|Atomic Commit| C{Review}
+    C -->|Feature Branch| D[Pull Request]
+    D -->|Squash & Merge| E[Main]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style E fill:#9f9,stroke:#333,stroke-width:4px
 ```
 </details>
 
