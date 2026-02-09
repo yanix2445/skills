@@ -60,12 +60,13 @@ Guide de gouvernance pour standardiser les URLs d'un écosystème multi-sites/mu
 ### Next.js (HIGH)
 
 Voir [nextjs-patterns.md](references/nextjs-patterns.md) pour :
-- Dynamic segments (`[slug]`, `[...slug]`, `[[...slug]]`)
-- Route groups `(folder)`
-- `redirects()` next.config.js
-- `notFound()`, `generateMetadata`
-- `robots.ts`, `sitemap.ts`
-- `<Link>` avec prefetch
+- **Proxy (ex-Middleware)** : `proxy.ts`, redirects/rewrites
+- **Advanced Routing** : Parallel (`@folder`), Intercepting (`(.)folder`)
+- **Async Params** : `params` et `searchParams` (Promesses Next.js 15+)
+- **Typed Routes** : Configuration et typage des liens (Next.js 16)
+- **Dynamic Segments** : `[slug]`, `[...slug]`, `[[...slug]]`
+- **SEO/Metadata** : `generateMetadata`, `robots.ts`, `sitemap.ts`
+- **Validation** : `notFound()`, `redirects()` next.config.js
 
 ### Extensions (MEDIUM)
 

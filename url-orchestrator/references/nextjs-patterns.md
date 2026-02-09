@@ -89,7 +89,63 @@ export default async function Page({
 
 ---
 
-## 3) Route Groups `(folder)`
+---
+
+## 3) Paramètres d'URL (Async Params & SearchParams)
+
+Depuis Next.js 15+, `params` et `searchParams` sont des **Promesses**.
+
+### Dynamic Segments + SearchParams
+
+```typescript
+// app/shop/[category]/page.tsx
+export default async function Page({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ category: string }>
+  searchParams: Promise<{ sort?: string; page?: string }>
+}) {
+  // 1. Await obligatoire
+  const { category } = await params
+  const { sort = 'date', page = '1' } = await searchParams
+  
+  return (
+    <div>
+      Category: {category}
+      Sort: {sort}
+      Page: {page}
+    </div>
+  )
+}
+```
+
+### Typed Routes (Next.js 16)
+
+Pour activer l'autocomplétion et la validation des liens `<Link href="...">`.
+
+```typescript
+// next.config.ts
+const nextConfig = {
+  experimental: {
+    typedRoutes: true,
+  },
+}
+```
+
+Si activé, le `URL Builder` doit retourner le type `Route` :
+
+```typescript
+import type { Route } from 'next'
+
+function buildUrl(...): Route {
+  return '/valid/path' as Route
+}
+```
+
+---
+
+## 4) Route Groups `(folder)`
 
 Organise le code sans affecter l'URL.
 
@@ -106,45 +162,102 @@ app/
 
 ---
 
-## 4) Redirects (next.config.js)
+## 4) Proxy (ex-Middleware) - Next.js 16+
+
+Depuis Next.js 16, `middleware.ts` est remplacé par `proxy.ts`.
 
 ```typescript
-// next.config.ts
-import type { NextConfig } from 'next'
+// proxy.ts (à la racine ou dans src/)
+import { type NextRequest, NextResponse } from 'next/server'
 
-const nextConfig: NextConfig = {
-  async redirects() {
-    return [
-      // Redirect permanent (308) - préserve la méthode HTTP
-      {
-        source: '/old-blog/:slug',
-        destination: '/blog/:slug',
-        permanent: true,
-      },
-      // Redirect temporaire (307)
-      {
-        source: '/temp-page',
-        destination: '/new-page',
-        permanent: false,
-      },
-      // Wildcard avec catch-all
-      {
-        source: '/docs/:path*',
-        destination: '/documentation/:path*',
-        permanent: true,
-      },
-    ]
-  },
+export const config = {
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 }
 
-export default nextConfig
+export default async function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl
+  
+  // Redirect (307)
+  if (pathname === '/old') {
+    return NextResponse.redirect(new URL('/new', request.url))
+  }
+  
+  // Rewrite (transparent)
+  if (pathname.startsWith('/rewrite')) {
+    return NextResponse.rewrite(new URL('/destination', request.url))
+  }
+  
+  // Headers modification
+  const response = NextResponse.next()
+  response.headers.set('x-custom-header', 'value')
+  return response
+}
 ```
-
-> **Important** : Next.js utilise 307/308 au lieu de 301/302 pour préserver la méthode HTTP (POST reste POST).
 
 ---
 
-## 5) notFound() - Validation côté serveur
+## 5) Parallel Routes (`@folder`)
+
+Permet de rendre plusieurs pages simultanément dans le même layout (ex: dashboard complexe).
+
+```
+app/
+├── layout.tsx
+├── @analytics/
+│   ├── page.tsx       # rendu dans props.analytics
+│   └── default.js     # fallback si slot inactif
+└── @team/
+    └── page.tsx       # rendu dans props.team
+```
+
+```typescript
+// app/layout.tsx
+export default function Layout({
+  children,
+  analytics,
+  team
+}: {
+  children: React.ReactNode
+  analytics: React.ReactNode
+  team: React.ReactNode
+}) {
+  return (
+    <>
+      {children}
+      <div className="dashboard-grid">
+        {analytics}
+        {team}
+      </div>
+    </>
+  )
+}
+```
+
+---
+
+## 6) Intercepting Routes (`(.)folder`)
+
+Permet de charger une route dans le layout actuel (ex: modale) tout en gardant l'URL accessible directement.
+
+```
+app/
+├── feed/
+│   └── page.tsx
+├── photo/[id]/
+│   └── page.tsx       # Page photo pleine (accès direct)
+└── feed/
+    └── (..)photo/[id]/
+        └── page.tsx   # Modale interceptée (depuis feed)
+```
+
+- `(.)` : même niveau
+- `(..)` : un niveau au-dessus
+- `(..)(..)` : deux niveaux au-dessus
+- `(...)` : depuis la racine `app/`
+
+---
+
+## 7) notFound() - Validation côté serveur
 
 ```typescript
 // app/[scope]/[channel]/page.tsx
@@ -171,7 +284,7 @@ export default async function Page({
 
 ---
 
-## 6) generateMetadata - SEO
+## 8) generateMetadata - SEO
 
 ```typescript
 // app/[scope]/[channel]/[slug]/page.tsx
@@ -219,7 +332,7 @@ export const metadata: Metadata = {
 
 ---
 
-## 7) robots.ts
+## 9) robots.ts
 
 ```typescript
 // app/robots.ts
@@ -241,7 +354,7 @@ export default function robots(): MetadataRoute.Robots {
 
 ---
 
-## 8) sitemap.ts
+## 10) sitemap.ts
 
 ```typescript
 // app/sitemap.ts
@@ -271,7 +384,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
 ---
 
-## 9) Link Component avec prefetch
+## 11) Link Component avec prefetch
 
 ```typescript
 // components/nav.tsx
@@ -302,7 +415,7 @@ export function Nav() {
 
 ---
 
-## 10) URL Builder centralisé
+## 12) URL Builder centralisé
 
 ```typescript
 // lib/url.ts
