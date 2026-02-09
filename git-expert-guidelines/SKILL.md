@@ -24,7 +24,7 @@ Standards de gestion de version pour Agents et Développeurs. Ce skill doit êtr
 
 ### 2. Workflow (HIGH)
 - **Atomique** : 1 commit = 1 changement logique
-- **Conventional** : `type(scope): description`
+- **Conventional** : `Header` + `Body` + `Footer` (Strict)
 - **Branches** : Pas de dev direct sur main
 
 ### 3. Recovery (HIGH)

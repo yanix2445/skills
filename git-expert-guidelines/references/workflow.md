@@ -12,18 +12,35 @@ git commit -m "Fix login, reformat css and update readme"
 
 ### Correct
 ```bash
+# Exemple conceptuel (la commande réelle nécessite plusieurs lignes ou un éditeur)
 git add src/auth
-git commit -m "fix(auth): handle null token"
-git add src/styles
-git commit -m "style: reformat css"
+git commit
+# [Dans l'éditeur]
+# fix(auth): handle null token
+#
+# Added a null check to prevent the 500 error loop.
+#
+# Fixes #142
 ```
 
 ---
 
-## 2) Conventional Commits (MEDIUM)
+## 2) Conventional Commits (CRITICAL)
 
-Format obligatoire : `type(scope): description`
+**Interdits formels** :
+- Commits en une seule ligne (`git commit -m "dazodjz"`)
+- Message sans contexte ou explication.
+
 **Langue : FRANÇAIS uniquement.**
+
+### Structure OBLIGATOIRE
+```text
+type(scope): description courte (max 50)
+
+[Body OBLIGATOIRE] Pourquoi & Comment (max 72/ligne)
+
+[Footer OBLIGATOIRE] Fixes #123
+```
 
 ### Types
 - `feat`: Nouvelle fonctionnalité
@@ -34,20 +51,12 @@ Format obligatoire : `type(scope): description`
 - `test`: Tests
 - `chore`: Build, deps
 
-### Structure
-```text
-type(scope): description courte (max 50)
-
-[Body optionnel] Pourquoi & Comment (max 72/ligne)
-
-[Footer optionnel] Fixes #123
-```
-
 ### Exemple Correct
 ```text
 fix(auth): gestion du token null
 
-Ajout d'une vérification pour éviter la boucle 500.
+Ajout d'une vérification pour éviter la boucle 500 lors du refresh.
+La logique précédente ne gérait pas le cas où le token expirait.
 
 Fixes #142
 ```
